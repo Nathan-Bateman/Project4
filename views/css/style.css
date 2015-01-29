@@ -30,7 +30,7 @@ form {
 }
 
 .mover {
-  position: absolute;
+  position: fixed;
   width: 256px;
   z-index: -1;
 }
