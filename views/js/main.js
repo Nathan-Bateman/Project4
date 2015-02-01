@@ -509,9 +509,9 @@ function updatePositions() {
   var sTop = document.body.scrollTop / 1250;
   for (var i = 0; i < numberOfItems; i++) {
     var phase = Math.sin((sTop) + (i % 5));
-    items[i].style.transform = translateX( + (100*phase) + 'px');
+    items[i].style.transform = 'translateX(' + (100*phase) + 'px)';
   }
-  //items[i].basicLeft + 100 * phase + 'px';
+  //learned translate tip from @1198 on piazza
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     //elem.basicLeft = (i % cols) * s;
-    elem.style.left = (i % cols) * s;
+    elem.style.left = ((i % cols) * s) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
