@@ -504,6 +504,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
+  var items = document.querySelectorAll('.mover');
   var numberOfItems = items.length;
   var sTop = document.body.scrollTop / 1250;
   for (var i = 0; i < numberOfItems; i++) {
@@ -538,6 +539,6 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  var items = document.querySelectorAll('.mover');
+
   updatePositions();
 });
