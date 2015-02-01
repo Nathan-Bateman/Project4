@@ -469,7 +469,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 50; i++) {
+for (var i = 2; i < 40; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -504,8 +504,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  //var items = document.querySelectorAll('.mover');
-  //var numberOfItems = items.length;
+
   var sTop = document.body.scrollTop / 1250;
   for (var i = 0; i < numberOfItems; i++) {
     var phase = Math.sin((sTop) + (i % 5));
@@ -529,7 +528,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -540,6 +539,9 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
+  //moved these to global scope here because they are not created
+  //until the .mover class is loaded by the above code and 
+  //it must be before updatePositions is called at the end
 items = document.querySelectorAll('.mover');
 numberOfItems = items.length;
   updatePositions();
