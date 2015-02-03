@@ -508,7 +508,7 @@ function updatePositions() {
   var sTop = document.body.scrollTop / 1250;
   for (var i = 0; i < numberOfItems; i++) {
     var phase = Math.sin((sTop) + (i % 5));
-    items[i].style.transform = 'translateX(' + (100*phase) + 'px)';
+    items[i].style.transform = 'translate3d(' + (100*phase) + 'px, 0, 0)';
   }
   //learned translate tip from @1198 on piazza
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -528,6 +528,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var movers = [];
   for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -537,8 +538,10 @@ document.addEventListener('DOMContentLoaded', function() {
     //elem.basicLeft = (i % cols) * s;
     elem.style.left = ((i % cols) * s) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    //movers.push(elem);
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
+  //document.querySelector("#movingPizzas1").appendChild(movers);
   //moved these to global scope here because they are not created
   //until the .mover class is loaded by the above code and 
   //it must be before updatePositions is called at the end
