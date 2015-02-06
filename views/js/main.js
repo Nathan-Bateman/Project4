@@ -449,6 +449,8 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+  //Removed each calculation involving the .randomPizzaContainer class
+  //and just did the calculations for the first in the object since others in it would simply have the same applied to them
   function changePizzaSizes(size) {
     var allPizzas = document.querySelectorAll(".randomPizzaContainer");
     var allPizzasLength = allPizzas.length;
@@ -504,7 +506,9 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // Moves the sliding background pizzas based on scroll position
   
   
-  
+//in the below function I stored the scrollTop method in a variable
+//then I added the css transform/translate3d method to make the 
+//pizzas get more power from the GPU 
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
@@ -538,12 +542,11 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    //elem.basicLeft = (i % cols) * s;
+    //set the initial, horizontal positions of the pizzas as recommended in piazza @1017
     elem.style.left = ((i % cols) * s) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  //document.querySelector("#movingPizzas1").appendChild(movers);
   //moved these to global scope here because they are not created
   //until the .mover class is loaded by the above code and 
   //it must be before updatePositions is called at the end

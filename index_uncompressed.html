@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <!--  <script>
-  // include loadCSS here...
-  function loadCSS(href){ ... }
-  // load a file
-  loadCSS( "//fonts.googleapis.com/css?family=Open+Sans:400,700" );
-</script>
-<noscript><link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"></noscript>-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=" FILL ME IN ">
     <meta name="author" content=" FILL ME IN ">
     <title>Cameron Pittman: Portfolio</title>
-
-    <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-   <!--<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">-->
-
-    <!--<link href="css/style_min.css" rel="stylesheet">-->
     <link href="css/print.css" rel="stylesheet" media="print">
+    <!--added async into the source reference to eliminate render blocking js-->
     <script async>
       (function(w,g){w['GoogleAnalyticsObject']=g;
       w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
@@ -27,6 +16,7 @@
       ga('create', 'UA-XXXX-Y');
       ga('send', 'pageview');
     </script>
+    <!--added async into the source reference to eliminate render blocking js-->
     <script src="http://www.google-analytics.com/analytics.js" async></script>
     <script src="js/perfmattersmin.js" async></script>
   </head>
@@ -61,7 +51,7 @@
             <a href="project-mobile.html">Mobile Web Development</a>
             <p>Making mobile apps isn't so hard after all.</p>
           </li>
-
+<!--I optimized the pizzeria.png image referenced here-->
           <li>
             <img style="width: 100px;" src="views/images/pizzeria.png">
             <a href="views/pizza.html">Cam's Pizzeria</a>
@@ -73,6 +63,7 @@
     <footer>
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
+    <!--I moved the two style sheets to the end to avoid having the css block the HTML at the beginning-->
     <link href="css/style_min.css" rel="stylesheet">
   </body>
   <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
