@@ -1,4 +1,10 @@
 # Nathan-Bateman.github.io
+To fix the files to (hopefully) meet specifications. I inlined all css to pizza.html. I
+then added the async tag to the <script> reference to main.js. This caused the background
+pizzas to disappear. So I took the part of the code which was not loading when the async tag
+was added and inlined it into the body of pizza.html. This caused it to work again and still
+meet all of the optimization benchmarks (fps, resize pizzas < 5 ms)
+
 EXTERNAL RESOURCES AND HONOR CODE:
 
 http://www.textfixer.com/html/compress-html-compression.php
