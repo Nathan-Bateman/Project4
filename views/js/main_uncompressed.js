@@ -449,7 +449,7 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-  //Removed each calculation involving the .randomPizzaContainer class
+  //Removed each calculation involving the .randomPizzaContainer class to outside the loop
   //and just did the calculations for the first in the object since others in it would simply have the same applied to them
   function changePizzaSizes(size) {
     var allPizzas = document.querySelectorAll(".randomPizzaContainer");
@@ -499,6 +499,8 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   }
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
+//I commented out the below code and inlined it into pizza.html because it was
+//not running if I asynced this js file
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
@@ -509,7 +511,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 //in the below function I stored the scrollTop method in a variable
 //then I added the css transform/translate3d method to make the 
 //pizzas get more power from the GPU 
-function updatePositions() {
+/*function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
@@ -518,7 +520,7 @@ function updatePositions() {
     var phase = Math.sin((sTop) + (i % 5));
     items[i].style.transform = 'translate3d(' + (100*phase) + 'px, 0, 0)';
   }
-  //learned translate tip from @1198 on piazza
+  //learned translate3d tip from @1198 on piazza
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
@@ -554,3 +556,4 @@ items = document.querySelectorAll('.mover');
 numberOfItems = items.length;
   updatePositions();
 });
+*/
